@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <chrono>
 
 void bubbleSwap(std::vector<int>& vet)
 {
@@ -61,9 +62,15 @@ int main()
     
     std::cout << "Presort!" << std::endl;
     printVet(vet);
+    std::chrono::high_resolution_clock clock;
+    auto start = clock.now();
     bubbleSwap(vet);
+    auto end = clock.now();
+    std::chrono::duration<float> duration (end - start);
+    
     std::cout << "Sorted" << std::endl;
     printVet(vet);
+    std::cout << "Sorted in " << duration.count() << std::endl;
     
     return 0;
 }
