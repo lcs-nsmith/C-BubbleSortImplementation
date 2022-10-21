@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <random>
 
 void bubbleSwap(std::vector<int>& vet)
 {
@@ -39,9 +40,25 @@ void printVet(const std::vector<int>& vet)
     std::cout << "\n";
 }
 
+
+ 
+int randInt(int a, int b)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(a, b);
+ 
+    return distrib(gen);
+}
+
 int main()
 {
-    std::vector<int> vet {1234, 1234, 990, 112};
+    std::vector<int> vet {};
+    for(int i = 0; i<3000; ++i)
+    {
+        vet.push_back(randInt(0, 200000));
+    }
+    
     std::cout << "Presort!" << std::endl;
     printVet(vet);
     bubbleSwap(vet);
