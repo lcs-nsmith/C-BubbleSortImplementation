@@ -55,9 +55,9 @@ int randInt(int a, int b)
 int main()
 {
     std::vector<int> vet {};
-    for(int i = 0; i<3000; ++i)
+    for(int i = 0; i<100000; ++i)
     {
-        vet.push_back(randInt(0, 200000));
+        vet.push_back(randInt(0, 100000));
     }
     
     std::cout << "Presort!" << std::endl;
